@@ -12,6 +12,11 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
+
+        "http://localhost/LARAVEL/proyecto/public/productos",
+        "http://localhost/LARAVEL/proyecto/public/productos/4",
+
+       
         //
     ];
 }

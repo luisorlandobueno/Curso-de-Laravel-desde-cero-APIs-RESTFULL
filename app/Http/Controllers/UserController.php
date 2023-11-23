@@ -24,6 +24,19 @@ class  UserController extends Controller{
 
    }
 
+   public function registro(Request $request){
+
+       $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8',
+        ]);
+
+
+   }
+
+
+
 
    public function index2(){
 
