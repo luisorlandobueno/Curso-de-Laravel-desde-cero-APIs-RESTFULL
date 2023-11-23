@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\ProductoController;
+
+
 use App\Http\Controllers\Admin\AdministratorController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\InvoiceController;
@@ -19,11 +22,42 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 
 });*/
 
+/*Route::prefix('productos')->group(function(){
+
+  Route::get('/',[ProductoController::class,'index']);
+  Route::get('/{id}',[ProductoController::class,'show']);
+  Route::post('/',[ProductoController::class,'store']);
+  Route::put('/{id}', [ProductoController::class, 'update']);
+  Route::delete('/{id}', [ProductoController::class, 'destroy']);
+
+
+
+});*/
+
+
+Route::prefix('productos')->group(function () {
+    Route::get('/', [ProductoController::class, 'index']);
+    Route::get('/{id}', [ProductoController::class, 'show']);
+    Route::post('/', [ProductoController::class, 'store']);
+    Route::put('/{id}', [ProductoController::class, 'update']);
+    Route::delete('/{id}', [ProductoController::class, 'destroy']);
+});
+
+
+
+
+
+
+
+Route::post('/register', [UserController::class, 'registro']);
+
 Route::middleware(['auth'])->group(function(){
 
     Route::get('/libros' ,[CarController::class, 'index']);
 
 });
+
+
 
 
 
